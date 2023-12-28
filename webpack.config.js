@@ -11,6 +11,9 @@ module.exports = {
     mode,
     target,
     devtool,
+    devServer: {
+        open: true,
+    },
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -27,6 +30,10 @@ module.exports = {
                 test: /\.html$/i,
                 loader: "html-loader",
             },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            }
         ],
     }
 }
